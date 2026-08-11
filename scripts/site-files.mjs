@@ -5,15 +5,20 @@ import path from "node:path";
 export const previewEntries = ["index.html", "styles.css", "script.js", "assets", "public"];
 
 export const workflowFiles = [
+  ".gitattributes",
   ".gitignore",
   "README.md",
   "package.json",
   "scripts/check-site.mjs",
   "scripts/check-version-boundary.mjs",
+  "scripts/init-github-publish.mjs",
   "scripts/preflight-site.mjs",
+  "scripts/prepare-github-publish.mjs",
+  "scripts/rollback-local-preview.mjs",
   "scripts/site-files.mjs",
   "scripts/sync-local-preview.mjs",
   "scripts/update-site.mjs",
+  "config/github-pages-package.json",
 ];
 
 export const requiredSourceFiles = [

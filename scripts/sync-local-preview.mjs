@@ -10,6 +10,7 @@ import {
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputsRoot = path.join(projectRoot, "outputs");
 const previewRoot = path.join(outputsRoot, "china-stability-site");
+const previousRoot = path.join(outputsRoot, "china-stability-site-previous");
 const stagingRoot = path.join(outputsRoot, `.china-stability-site-staging-${process.pid}`);
 const backupRoot = path.join(outputsRoot, `.china-stability-site-backup-${process.pid}`);
 
@@ -82,14 +83,21 @@ if (stagedFingerprint !== sourceFingerprint) {
 }
 
 try {
+  let hasPreviousPreview = false;
   if (await exists(previewRoot)) {
     await rename(previewRoot, backupRoot);
+    hasPreviousPreview = true;
   }
 
   await rename(stagingRoot, previewRoot);
-  await rm(backupRoot, { recursive: true, force: true });
+
+  if (hasPreviousPreview) {
+    await rm(previousRoot, { recursive: true, force: true });
+    await rename(backupRoot, previousRoot);
+  }
 } catch (error) {
-  if (!(await exists(previewRoot)) && (await exists(backupRoot))) {
+  if (await exists(backupRoot)) {
+    await rm(previewRoot, { recursive: true, force: true });
     await rename(backupRoot, previewRoot);
   }
   await rm(stagingRoot, { recursive: true, force: true });
@@ -97,3 +105,6 @@ try {
 }
 
 console.log(`本機預覽已同步：${previewRoot}`);
+if (await exists(previousRoot)) {
+  console.log(`上一份本機預覽已保留：${previousRoot}`);
+}

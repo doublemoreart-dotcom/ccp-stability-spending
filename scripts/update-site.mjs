@@ -18,6 +18,7 @@ run(process.execPath, ["scripts/check-version-boundary.mjs"]);
 console.log("2/5 檢查 JavaScript 語法與 Git diff 格式");
 run(process.execPath, ["--check", "script.js"]);
 run("git", ["diff", "--check"]);
+run("git", ["diff", "--cached", "--check"]);
 
 console.log("3/5 驗證網站原始檔、連結與分享素材");
 run(process.execPath, ["scripts/check-site.mjs", "--source"]);
