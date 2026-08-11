@@ -50,26 +50,66 @@ function sleep(milliseconds) {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
-async function fetchJson(url) {
-  const response = await fetch(url, {
-    headers: {
-      Accept: "application/vnd.github+json",
-      "User-Agent": "ccp-stability-spending-release",
-    },
+function gitCredentialToken(publishRoot) {
+  try {
+    const credential = execFileSync("git", ["credential", "fill"], {
+      cwd: publishRoot,
+      encoding: "utf8",
+      input: "protocol=https\nhost=github.com\n\n",
+      stdio: ["pipe", "pipe", "pipe"],
+    });
+    const values = Object.fromEntries(
+      credential
+        .trim()
+        .split("\n")
+        .map((line) => line.split(/=(.*)/s).slice(0, 2)),
+    );
+    return values.password || "";
+  } catch {
+    return "";
+  }
+}
+
+function githubHeaders(token = "") {
+  return {
+    Accept: "application/vnd.github+json",
+    "User-Agent": "ccp-stability-spending-release",
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+  };
+}
+
+async function fetchJson(url, publishRoot) {
+  let response = await fetch(url, {
+    headers: githubHeaders(),
   });
+
+  if (
+    response.status === 403 &&
+    response.headers.get("x-ratelimit-remaining") === "0"
+  ) {
+    const token = gitCredentialToken(publishRoot);
+    if (token) {
+      response = await fetch(url, { headers: githubHeaders(token) });
+    }
+  }
+
   if (!response.ok) {
-    throw new Error(`GitHub public API 回應 ${response.status}：${url}`);
+    const reset = response.headers.get("x-ratelimit-reset");
+    const resetMessage = reset
+      ? `；限流重設時間 ${new Date(Number(reset) * 1000).toISOString()}`
+      : "";
+    throw new Error(`GitHub public API 回應 ${response.status}${resetMessage}：${url}`);
   }
   return response.json();
 }
 
-async function waitForPages(commitSha) {
+async function waitForPages(commitSha, publishRoot) {
   const deadline = Date.now() + pagesTimeoutMs;
   const apiUrl = `https://api.github.com/repos/${expectedRepoSlug}/actions/runs?head_sha=${commitSha}&per_page=20`;
   let latestRun;
 
   while (Date.now() < deadline) {
-    const data = await fetchJson(apiUrl);
+    const data = await fetchJson(apiUrl, publishRoot);
     latestRun = data.workflow_runs.find(
       (run) =>
         run.name === "pages build and deployment" ||
@@ -175,7 +215,7 @@ const commitSha = gitOutput(publishRoot, ["rev-parse", "HEAD"]);
 run("git", ["push", "origin", "main"], publishRoot);
 
 console.log("5/5 等待 Pages 並驗證公開網址");
-const pagesRun = await waitForPages(commitSha);
+const pagesRun = await waitForPages(commitSha, publishRoot);
 const page = await verifyPublishedPage(commitSha);
 console.log(`發布完成：${commitSha}`);
 console.log(`Pages run：${pagesRun.html_url}`);
