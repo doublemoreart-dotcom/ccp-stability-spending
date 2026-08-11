@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      document.documentElement.classList.add("js", "is-preloading");
+      window.__sitePreloadStart = performance.now();
+      window.__sitePreloadSafety = window.setTimeout(() => {
+        document.documentElement.classList.remove("is-preloading");
+        document.querySelector("#site-preloader")?.remove();
+      }, 5000);
+    </script>
+    <meta
+      name="description"
+      content="從中共自身的治理邏輯出發，拆解其如何定義穩定、配置公共資源並建立維穩能力，再以外部視角檢驗成本與影響。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:title" content="中共如何使用維穩費？｜成本、財政與權力運作" />
+    <meta
+      property="og:description"
+      content="從中共治理邏輯出發，拆解維穩支出的估算口徑、財政流向、治理鏈與外部觀察。"
+    />
+    <meta property="og:image" content="public/social-share.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="中共如何使用維穩費：成本、財政、治理鏈與外部觀察"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="中共如何使用維穩費？｜成本、財政與權力運作" />
+    <meta
+      name="twitter:description"
+      content="拆解維穩支出的估算口徑、財政流向、治理鏈與外部觀察。"
+    />
+    <meta name="twitter:image" content="public/social-share.png" />
+    <meta
+      name="twitter:image:alt"
+      content="中共如何使用維穩費：成本、財政、治理鏈與外部觀察"
+    />
+    <title>中共如何使用維穩費？｜成本、財政與權力運作</title>
+    <link rel="icon" href="public/favicon.ico" sizes="any" />
+    <link rel="icon" href="public/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="assets/fonts/SNPro-Variable.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" as="image" href="assets/images/hero-main.webp" type="image/webp" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&amp;display=swap"
+    />
+    <link rel="prefetch" as="image" href="assets/images/scenario-core.jpg" />
+    <link rel="prefetch" as="image" href="assets/images/scenario-expanded.jpg" />
+    <link rel="prefetch" as="image" href="assets/images/scenario-social.jpg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div
+      id="site-preloader"
+      class="site-preloader"
+      role="progressbar"
+      aria-label="網站載入進度"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="12"
+    >
+      <div class="site-preloader-panel">
+        <img class="site-preloader-mark" src="public/favicon.svg" alt="" aria-hidden="true" />
+        <p>建立中共維穩費觀察頁面</p>
+        <strong><span id="site-preloader-value">12</span><small>%</small></strong>
+        <div class="site-preloader-track" aria-hidden="true">
+          <i id="site-preloader-fill" style="width: 12%"></i>
+        </div>
+        <small id="site-preloader-status">準備頁面結構</small>
+      </div>
+    </div>
+    <noscript><style>.site-preloader { display: none !important; }</style></noscript>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="回到首頁">
+        <img class="brand-mark" src="public/favicon.svg" alt="" aria-hidden="true" />
+        <span>中共維穩費觀察</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <img src="public/favicon.svg" alt="" aria-hidden="true" />
+        選單
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="主要導覽">
+        <a href="#definition">定義</a>
+        <a href="#cost">估算</a>
+        <a href="#funding">財政</a>
+        <a href="#system">治理鏈</a>
+        <a href="#perspectives">外部觀察</a>
+        <a href="#method">方法</a>
+      </nav>
+      <span class="reading-progress" aria-hidden="true"><i></i></span>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <figure class="hero-visual-wrap">
+          <img
+            class="hero-visual"
+            src="assets/images/hero-main.webp"
+            alt="暮色中的城市建築、監視攝影機與資料圖表倒影，象徵維穩體系的監控與財政網絡"
+            width="1983"
+            height="793"
+            fetchpriority="high"
+          />
+        </figure>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="eyebrow">中共治理視角・資料敘事專題</div>
+        <h1 id="hero-title">中共如何使用<em>維穩費？</em></h1>
+        <p class="hero-lead">
+          本專題先沿著中共「政治安全、社會穩定與治理效能」的內部敘事，理解它如何界定風險、配置財政並建立公安、司法、數位與基層治理能力；最後再切換到外部視角，檢驗這套體系的成本與影響。
+        </p>
+        <div class="hero-framing"><img class="icon-light" src="assets/icons/information-circle.svg" alt="" aria-hidden="true" /><p>閱讀立場：採用中共視角是為了理解其運作邏輯，不代表接受官方定義；「維穩費」仍是本站的分析概念，不是官方單一預算科目。</p></div>
+        <span class="hero-visual-note">概念主視覺・非紀實照片</span>
+        <div class="hero-summary" aria-label="選擇閱讀章節">
+          <a href="#cost" aria-label="前往估算章節：中共如何界定維穩支出">
+            <span class="summary-index">01</span>
+            <span class="summary-visual" aria-hidden="true"><img class="icon-light" src="assets/icons/calculator.svg" alt="" /></span>
+            <strong>中共如何界定支出</strong>
+            <p>先從官方治理職能建立可觀察的估算範圍。</p>
+            <span class="summary-link">前往章節 <img class="icon-light" src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
+          </a>
+          <a href="#funding" aria-label="前往資金來源章節：中共如何配置維穩資源">
+            <span class="summary-index">02</span>
+            <span class="summary-visual" aria-hidden="true"><img class="icon-light" src="assets/icons/arrows-right-left.svg" alt="" /></span>
+            <strong>中共如何配置資源</strong>
+            <p>公共收入如何經中央與地方財政進入治理體系。</p>
+            <span class="summary-link">前往章節 <img class="icon-light" src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
+          </a>
+          <a href="#system" aria-label="前往用途章節：中共如何使用維穩資源">
+            <span class="summary-index">03</span>
+            <span class="summary-visual" aria-hidden="true"><img class="icon-light" src="assets/icons/building-library.svg" alt="" /></span>
+            <strong>中共如何形成能力</strong>
+            <p>政策要求如何轉成公安、司法、數位與基層執行。</p>
+            <span class="summary-link">前往章節 <img class="icon-light" src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
+          </a>
+          <a href="#perspectives" aria-label="前往影響章節：外部如何評估維穩代價">
+            <span class="summary-index">04</span>
+            <span class="summary-visual" aria-hidden="true"><img class="icon-light" src="assets/icons/globe-alt.svg" alt="" /></span>
+            <strong>外部如何檢驗代價</strong>
+            <p>離開官方敘事，從權利、財政、科技與台灣檢視。</p>
+            <span class="summary-link">前往章節 <img class="icon-light" src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
+          </a>
+        </div>
+      </section>
+
+      <section id="definition" class="chapter definition" aria-labelledby="definition-title">
+        <div class="chapter-label">
+          <img class="section-icon" src="assets/icons/calculator.svg" alt="" aria-hidden="true" />
+          定義
+        </div>
+        <div class="chapter-copy">
+          <h2 id="definition-title">中共所稱的「穩定」如何成為支出</h2>
+          <p>
+            中共官方通常以政治安全、公共安全、社會治理與風險防範描述相關工作，而未以單一科目公布「維穩總額」。本站依這套治理架構建立三種估算口徑；數字皆為模型情境，不是官方統計。
+          </p>
+        </div>
+        <div class="definition-cards" role="group" aria-label="選擇估算口徑">
+          <button class="definition-card" type="button" data-definition-scenario="low" aria-pressed="true" aria-haspopup="dialog" aria-controls="estimate-dialog">
+            <span class="definition-card-top"><span>核心口徑</span><small>3 個模組</small></span>
+            <span class="definition-amount"><strong>1.71</strong><small>兆／年</small></span>
+            <h3>公共安全與司法</h3>
+            <p>從中共公開職能出發，納入公安、司法、監獄、應變與基層治理。</p>
+            <span class="definition-card-action"><span>已選擇</span><span aria-hidden="true">→</span></span>
+          </button>
+          <button class="definition-card" type="button" data-definition-scenario="mid" aria-pressed="false" aria-haspopup="dialog" aria-controls="estimate-dialog">
+            <span class="definition-card-top"><span>擴展口徑</span><small>6 個模組</small></span>
+            <span class="definition-amount"><strong>2.27</strong><small>兆／年</small></span>
+            <h3>行政與數位治理</h3>
+            <p>加入中共治理體系中的網路內容管理、資料系統與臨時部署。</p>
+            <span class="definition-card-action"><span>套用此口徑</span><span aria-hidden="true">→</span></span>
+          </button>
+          <button class="definition-card" type="button" data-definition-scenario="high" aria-pressed="false" aria-haspopup="dialog" aria-controls="estimate-dialog">
+            <span class="definition-card-top"><span>社會成本口徑</span><small>9 個模組</small></span>
+            <span class="definition-amount"><strong>3.02</strong><small>兆／年</small></span>
+            <h3>間接與外溢成本</h3>
+            <p>再從外部分析納入企業合規、平台責任與組織動員等外溢成本。</p>
+            <span class="definition-card-action"><span>套用此口徑</span><span aria-hidden="true">→</span></span>
+          </button>
+        </div>
+      </section>
+
+      <dialog id="estimate-dialog" class="perspective-dialog estimate-dialog" aria-labelledby="estimate-dialog-title" aria-describedby="estimate-dialog-intro">
+        <button class="dialog-close" type="button" aria-label="關閉估算口徑完整敘事"><img src="assets/icons/x-mark.svg" alt="" aria-hidden="true" /></button>
+        <figure class="dialog-visual estimate-dialog-visual">
+          <img data-dialog-image class="dialog-visual-image" src="assets/images/scenario-core.jpg" alt="" />
+          <span class="dialog-visual-shade" aria-hidden="true"></span>
+          <figcaption class="estimate-visual-data">
+            <span id="estimate-dialog-visual-label">核心口徑</span>
+            <strong id="estimate-dialog-value">1.71</strong>
+            <small>兆人民幣／年</small>
+            <p id="estimate-dialog-visual-note">3 個模組・較可觀察的制度支出</p>
+          </figcaption>
+        </figure>
+        <div class="dialog-shell">
+          <span id="estimate-dialog-tag" class="dialog-tag"></span>
+          <h2 id="estimate-dialog-title"></h2>
+          <p data-dialog-subtitle class="dialog-subtitle"></p>
+          <p id="estimate-dialog-intro" class="estimate-story-lead"></p>
+          <section class="estimate-breakdown" aria-labelledby="estimate-breakdown-title">
+            <h3 id="estimate-breakdown-title"><img src="assets/icons/calculator.svg" alt="" aria-hidden="true" />數字如何組成</h3>
+            <ol id="estimate-dialog-breakdown"></ol>
+            <p class="estimate-equation"><span id="estimate-dialog-equation"></span><strong id="estimate-dialog-total"></strong></p>
+          </section>
+          <div class="estimate-reading-grid">
+            <article><span><img src="assets/icons/eye.svg" alt="" aria-hidden="true" />如何解讀</span><p id="estimate-dialog-reading"></p></article>
+            <article><span><img src="assets/icons/information-circle.svg" alt="" aria-hidden="true" />邊界提醒</span><p id="estimate-dialog-boundary"></p></article>
+          </div>
+          <div class="dialog-sources"><h3><img src="assets/icons/globe-alt.svg" alt="" aria-hidden="true" />相關資料與章節</h3><ul data-dialog-sources></ul></div>
+        </div>
+      </dialog>
+
+      <section id="cost" class="chapter dark-section" aria-labelledby="cost-title">
+        <div class="chapter-label">
+          <img class="section-icon icon-light" src="assets/icons/banknotes.svg" alt="" aria-hidden="true" />
+          01・支出範圍
+        </div>
+        <div class="section-heading">
+          <div>
+            <h2 id="cost-title" class="rwd-single-line long-title">中共未以單一科目公布「維穩總額」，但治理支出可以分層估算</h2>
+          </div>
+          <p>
+            中共以不同機關、層級與科目編列相關支出。本站以 1.71、2.27 與 3.02 兆人民幣呈現三種分析情境，用來比較從官方職能到外溢成本的口徑差異，而非宣稱存在一筆官方總預算。
+          </p>
+        </div>
+
+        <div class="estimate-panel">
+          <div class="estimate-overview">
+            <div class="estimate-presets">
+              <span class="estimate-presets-label">01・選擇比較情境</span>
+              <div class="estimate-controls" role="group" aria-label="估算情境">
+                <button class="scenario-button active" type="button" data-scenario="low" aria-pressed="true">
+                  <span class="scenario-step">01</span>
+                  <span><strong>核心口徑</strong><small>3 個模組・1.71 兆</small></span>
+                  <span class="scenario-check" aria-hidden="true">✓</span>
+                </button>
+                <button class="scenario-button" type="button" data-scenario="mid" aria-pressed="false">
+                  <span class="scenario-step">02</span>
+                  <span><strong>擴展口徑</strong><small>6 個模組・2.27 兆</small></span>
+                  <span class="scenario-check" aria-hidden="true">✓</span>
+                </button>
+                <button class="scenario-button" type="button" data-scenario="high" aria-pressed="false">
+                  <span class="scenario-step">03</span>
+                  <span><strong>社會成本口徑</strong><small>9 個模組・3.02 兆</small></span>
+                  <span class="scenario-check" aria-hidden="true">✓</span>
+                </button>
+              </div>
+            </div>
+            <div class="estimate-result" aria-live="polite">
+              <span class="estimate-result-label">02・查看即時結果</span>
+              <div class="estimate-number">
+                <span id="estimate-value">1.71</span>
+                <span class="estimate-unit">兆人民幣／年</span>
+              </div>
+              <p id="estimate-note" class="estimate-note">以中共公開機關職能為基線，納入公共安全、司法、應變與基層治理模組。</p>
+              <div class="estimate-result-meta">
+                <span id="estimate-delta">核心口徑基準</span>
+                <a href="#calculator-title">進一步自訂模組 <span aria-hidden="true">↓</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="range-scale" aria-label="三種示範情境在零至三點四兆人民幣區間的位置">
+            <span class="range-endpoint range-start">0</span>
+            <div class="range-line">
+              <div id="range-fill" class="range-fill"></div>
+              <button class="range-point active" type="button" data-range-scenario="low" style="--marker: 50.3%" aria-label="套用核心口徑，一點七一兆人民幣" aria-pressed="true"><i></i><small>1.71</small></button>
+              <button class="range-point" type="button" data-range-scenario="mid" style="--marker: 66.8%" aria-label="套用擴展口徑，二點二七兆人民幣" aria-pressed="false"><i></i><small>2.27</small></button>
+              <button class="range-point" type="button" data-range-scenario="high" style="--marker: 88.8%" aria-label="套用社會成本口徑，三點零二兆人民幣" aria-pressed="false"><i></i><small>3.02</small></button>
+            </div>
+            <span class="range-endpoint range-end">3.4 兆</span>
+          </div>
+          <div class="data-warning">
+            <img class="warning-icon icon-light" src="assets/icons/information-circle.svg" alt="" aria-hidden="true" />
+            <div>
+              <strong>資料標籤：模型估算</strong>
+              <span>不是中國政府公布的「維穩總預算」，不可直接視為確定事實。</span>
+            </div>
+          </div>
+
+          <section class="cost-calculator" aria-labelledby="calculator-title">
+            <header class="calculator-header">
+              <img class="icon-light" src="assets/icons/calculator.svg" alt="" aria-hidden="true" />
+              <div>
+                <span>互動估算器</span>
+                <h3 id="calculator-title">依中共治理模組建立估算口徑</h3>
+                <p>先選擇中共治理體系中的公安、政法、數位與基層模組，再決定是否納入外溢成本。分項金額用來解釋模型結構，不對應官方預算科目。</p>
+              </div>
+            </header>
+
+            <div class="calculator-layout">
+              <div class="calculator-modules">
+                <button id="calculator-core-toggle" class="calculator-group-toggle" type="button" aria-expanded="true" aria-controls="calculator-core">
+                  <span>核心口徑・較可觀察</span><small><b data-group-selected="calculator-core">3</b>／3 已選</small><i aria-hidden="true"></i>
+                </button>
+                <fieldset id="calculator-core" aria-labelledby="calculator-core-toggle">
+                  <legend>核心口徑・較可觀察</legend>
+                  <label class="cost-module">
+                    <input type="checkbox" data-module="security" data-cost="1.20" checked />
+                    <span><strong>公安、法院、檢察與監獄</strong><small>對應體系 03／04</small></span><b>1.20</b>
+                  </label>
+                  <label class="cost-module">
+                    <input type="checkbox" data-module="response" data-cost="0.25" checked />
+                    <span><strong>武警與重大事件應變</strong><small>對應體系 03</small></span><b>0.25</b>
+                  </label>
+                  <label class="cost-module">
+                    <input type="checkbox" data-module="grassroots" data-cost="0.26" checked />
+                    <span><strong>街道、社區與網格治理</strong><small>對應體系 05／06</small></span><b>0.26</b>
+                  </label>
+                </fieldset>
+
+                <button id="calculator-expanded-toggle" class="calculator-group-toggle" type="button" aria-expanded="false" aria-controls="calculator-expanded">
+                  <span>擴展口徑・行政與數位治理</span><small><b data-group-selected="calculator-expanded">0</b>／3 已選</small><i aria-hidden="true"></i>
+                </button>
+                <fieldset id="calculator-expanded" aria-labelledby="calculator-expanded-toggle">
+                  <legend>擴展口徑・行政與數位治理</legend>
+                  <label class="cost-module">
+                    <input type="checkbox" data-module="content" data-cost="0.18" />
+                    <span><strong>網路內容與平台治理</strong><small>對應體系 06／科技視角</small></span><b>0.18</b>
+                  </label>
+                  <label class="cost-module">
+                    <input type="checkbox" data-module="digital" data-cost="0.20" />
+                    <span><strong>數位監控與資料系統</strong><small>對應體系 03／科技視角</small></span><b>0.20</b>
+                  </label>
+                  <label class="cost-module">
+                    <input type="checkbox" data-module="temporary" data-cost="0.18" />
+                    <span><strong>特定時點與臨時部署</strong><small>對應體系 02／05</small></span><b>0.18</b>
+                  </label>
+                </fieldset>
+
+                <button id="calculator-social-toggle" class="calculator-group-toggle" type="button" aria-expanded="false" aria-controls="calculator-social">
+                  <span>社會成本口徑・間接與外溢</span><small><b data-group-selected="calculator-social">0</b>／3 已選</small><i aria-hidden="true"></i>
+                </button>
+                <fieldset id="calculator-social" aria-labelledby="calculator-social-toggle">
+                  <legend>社會成本口徑・間接與外溢</legend>
+                  <label class="cost-module">
+                    <input type="checkbox" data-module="regional" data-cost="0.25" />
+                    <span><strong>特定地區的高密度治理</strong><small>對應資金下游支出</small></span><b>0.25</b>
+                  </label>
+                  <label class="cost-module">
+                    <input type="checkbox" data-module="compliance" data-cost="0.22" />
+                    <span><strong>企業與平台隱性合規</strong><small>對應商業／科技視角</small></span><b>0.22</b>
+                  </label>
+                  <label class="cost-module">
+                    <input type="checkbox" data-module="mobilization" data-cost="0.28" />
+                    <span><strong>宣傳、校園與組織動員</strong><small>對應體系 06</small></span><b>0.28</b>
+                  </label>
+                </fieldset>
+              </div>
+
+              <aside class="calculator-result" aria-live="polite">
+                <span class="calculator-result-label">目前試算</span>
+                <div><strong id="calculator-value">1.71</strong><small>兆人民幣／年</small></div>
+                <p><span id="calculator-count">3</span>／9 個成本模組・<strong id="calculator-model-name">核心口徑</strong></p>
+                <label class="pressure-control" for="pressure-range">
+                  <span>情境調整係數 <output id="pressure-value">100%</output></span>
+                  <input id="pressure-range" type="range" min="90" max="110" value="100" step="1" />
+                  <small>用來測試外部環境與執行強度變化，不是預測值。</small>
+                </label>
+                <div class="calculator-links">
+                  <a href="#funding"><span>資金從哪裡來</span><small>查看上游與財政池 →</small></a>
+                  <a href="#system"><span>成本如何落地</span><small>查看六階段體系 →</small></a>
+                </div>
+              </aside>
+            </div>
+
+            <p class="calculator-disclaimer">計算方式：已勾選模組金額合計 × 情境調整係數。模組權重以本專題三種示範情境為校準目標，只用於比較口徑，不代表實際分項金額。</p>
+          </section>
+        </div>
+      </section>
+
+      <section id="funding" class="chapter paper-section" aria-labelledby="funding-title">
+        <div class="chapter-label">
+          <img class="section-icon" src="assets/icons/arrows-right-left.svg" alt="" aria-hidden="true" />
+          02・財政配置
+        </div>
+        <div class="section-heading">
+          <div>
+            <h2 id="funding-title">中共如何把公共收入配置為維穩能力</h2>
+          </div>
+          <p>在中共的治理架構中，穩定被視為發展與執政安全的前提，相關資源因此分散進中央、地方、專案與行政體系。下圖呈現其配置邏輯，而非可逐筆追蹤的會計管線。</p>
+        </div>
+
+        <div class="funding-flow" aria-label="公共資源由社會經濟向下匯入財政，再分配至治理支出的流程">
+          <section class="flow-stage flow-stage-upstream" aria-labelledby="upstream-title">
+            <header class="flow-stage-header">
+              <span class="flow-stage-badge">上游・收入與資產來源</span>
+              <div>
+                <h3 id="upstream-title">社會與經濟</h3>
+                <p>中共可配置的公共收入，最初來自社會生產、交易與國有資產運作。</p>
+              </div>
+            </header>
+            <div class="flow-card-grid">
+              <button class="flow-card funding-detail" type="button" data-funding-detail="labor" aria-haspopup="dialog" aria-controls="funding-dialog">
+                <img src="assets/icons/user-group.svg" alt="" aria-hidden="true" />
+                <div><strong>消費與勞動</strong><small>稅收與社會生產</small><span class="flow-card-action">查看詳情 →</span></div>
+              </button>
+              <button class="flow-card funding-detail" type="button" data-funding-detail="enterprise" aria-haspopup="dialog" aria-controls="funding-dialog">
+                <img src="assets/icons/briefcase.svg" alt="" aria-hidden="true" />
+                <div><strong>企業活動</strong><small>企業稅收與經濟產出</small><span class="flow-card-action">查看詳情 →</span></div>
+              </button>
+              <button class="flow-card funding-detail" type="button" data-funding-detail="assets" aria-haspopup="dialog" aria-controls="funding-dialog">
+                <img src="assets/icons/map.svg" alt="" aria-hidden="true" />
+                <div><strong>土地與國有資產</strong><small>土地收入與國企收益</small><span class="flow-card-action">查看詳情 →</span></div>
+              </button>
+            </div>
+          </section>
+
+          <div class="flow-connector" aria-hidden="true">
+            <span></span>
+            <small>稅收・收益・公共資源</small>
+          </div>
+
+          <section class="flow-stage flow-pool" aria-labelledby="pool-title">
+            <header class="flow-stage-header">
+              <span class="flow-stage-badge">中游・公共財政配置</span>
+              <div>
+                <h3 id="pool-title">中央與地方財政</h3>
+                <p>中共透過中央統籌、地方執行與轉移支付分配財力，而非設置一筆以「維穩」命名的獨立基金。</p>
+              </div>
+            </header>
+            <div class="flow-card-grid">
+              <button class="flow-card funding-detail" type="button" data-funding-detail="central" aria-haspopup="dialog" aria-controls="funding-dialog">
+                <img src="assets/icons/building-library.svg" alt="" aria-hidden="true" />
+                <div><strong>中央財政</strong><small>中央本級與全國性政策</small><span class="flow-card-action">查看詳情 →</span></div>
+              </button>
+              <button class="flow-card funding-detail" type="button" data-funding-detail="local" aria-haspopup="dialog" aria-controls="funding-dialog">
+                <img src="assets/icons/building-office-2.svg" alt="" aria-hidden="true" />
+                <div><strong>地方財政</strong><small>地方預算與日常行政</small><span class="flow-card-action">查看詳情 →</span></div>
+              </button>
+              <button class="flow-card funding-detail" type="button" data-funding-detail="transfer" aria-haspopup="dialog" aria-controls="funding-dialog">
+                <img src="assets/icons/arrows-right-left.svg" alt="" aria-hidden="true" />
+                <div><strong>轉移支付與專案</strong><small>跨層級配置與專案採購</small><span class="flow-card-action">查看詳情 →</span></div>
+              </button>
+            </div>
+          </section>
+
+          <div class="flow-connector" aria-hidden="true">
+            <span></span>
+            <small>預算編列・轉移支付・專案採購</small>
+          </div>
+
+          <section class="flow-stage flow-stage-downstream" aria-labelledby="downstream-title">
+            <header class="flow-stage-header">
+              <span class="flow-stage-badge">下游・制度與行政支出</span>
+              <div>
+                <h3 id="downstream-title">維穩用途</h3>
+                <p>在中共治理邏輯下，預算最終轉化為風險防範、執法司法、技術建設與基層控制能力。</p>
+              </div>
+            </header>
+            <div class="flow-card-grid">
+              <button class="flow-card funding-detail" type="button" data-funding-detail="security" aria-haspopup="dialog" aria-controls="funding-dialog">
+                <img src="assets/icons/shield-check.svg" alt="" aria-hidden="true" />
+                <div><strong>公安與司法</strong><small>執法、司法與羈押系統</small><span class="flow-card-action">查看詳情 →</span></div>
+              </button>
+              <button class="flow-card funding-detail" type="button" data-funding-detail="network" aria-haspopup="dialog" aria-controls="funding-dialog">
+                <img src="assets/icons/signal.svg" alt="" aria-hidden="true" />
+                <div><strong>網路與基層治理</strong><small>平台、街道與社區網絡</small><span class="flow-card-action">查看詳情 →</span></div>
+              </button>
+              <button class="flow-card funding-detail" type="button" data-funding-detail="capacity" aria-haspopup="dialog" aria-controls="funding-dialog">
+                <img src="assets/icons/cpu-chip.svg" alt="" aria-hidden="true" />
+                <div><strong>設備、系統與人力</strong><small>技術建設與持續運作</small><span class="flow-card-action">查看詳情 →</span></div>
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <section id="external-observation" class="chapter paper-section funding-evidence external-observation-section" aria-labelledby="funding-evidence-title">
+          <div class="funding-feature">
+            <figure>
+              <img src="assets/images/funding-editorial.webp" loading="lazy" decoding="async" alt="桌上攤開財政文件、土地圖與採購資料，窗外可見城市建築與監視器的示意場景" />
+              <figcaption>示意主視覺・公共財政、土地資產與治理設備的交會</figcaption>
+            </figure>
+            <blockquote class="funding-thesis">
+              <span>外部觀察・為何需要報導</span>
+              <p>前一段提出四個觀察問題；這一段提供可追溯的新聞線索，讓讀者自行比對制度敘事與具體案例。</p>
+            </blockquote>
+          </div>
+
+          <p id="funding-evidence-title" class="news-list-intro">
+            <strong>10 則外部報導</strong>
+            <span>依財政、技術、地方執行與跨境影響排列；摘要為本站整理。</span>
+          </p>
+
+          <ol id="external-news-list" class="news-evidence-list" aria-labelledby="funding-evidence-title">
+            <li>
+              <article>
+                <span class="news-index" aria-hidden="true">01</span>
+                <div class="news-source"><strong>Associated Press</strong><time datetime="2025-10-29">2025.10.29</time></div>
+                <div class="news-summary"><h4>鏡頭如何遍布中國城市與日常空間</h4><p>影像專題呈現「天網」、「雪亮工程」等系統如何把攝影機、車牌辨識與警務平台連成治理基礎設施。</p></div>
+                <a href="https://apnews.com/article/c68debcc6d750b36985b99132df4f784" target="_blank" rel="noreferrer" aria-label="閱讀 Associated Press 報導：鏡頭如何遍布中國城市與日常空間">原文 <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></a>
+              </article>
+            </li>
+            <li>
+              <article>
+                <span class="news-index" aria-hidden="true">02</span>
+                <div class="news-source"><strong>Associated Press</strong><time datetime="2025-09-09">2025.09.09</time></div>
+                <div class="news-summary"><h4>美國科技企業如何參與中國監控系統</h4><p>調查追蹤晶片、伺服器、分析軟體與警務採購，說明監控能力同時依賴政府支出與跨國供應鏈。</p></div>
+                <a href="https://apnews.com/article/a80904158b771a14d5a734947f28d71b" target="_blank" rel="noreferrer" aria-label="閱讀 Associated Press 報導：美國科技企業如何參與中國監控系統">原文 <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></a>
+              </article>
+            </li>
+            <li>
+              <article>
+                <span class="news-index" aria-hidden="true">03</span>
+                <div class="news-source"><strong>The Guardian</strong><time datetime="2025-05-24">2025.05.24</time></div>
+                <div class="news-summary"><h4>河南出現更嚴格的區域網路審查</h4><p>研究發現區域封鎖強度可能高於全國一般水準，顯示數位治理不只由中央規則決定，也可能在地方加碼。</p></div>
+                <a href="https://www.theguardian.com/world/2025/may/24/alarming-rise-in-regional-internet-censorship-in-china-study-finds" target="_blank" rel="noreferrer" aria-label="閱讀 The Guardian 報導：河南出現更嚴格的區域網路審查">原文 <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></a>
+              </article>
+            </li>
+            <li>
+              <article>
+                <span class="news-index" aria-hidden="true">04</span>
+                <div class="news-source"><strong>Reuters</strong><time datetime="2025-01-24">2025.01.24</time></div>
+                <div class="news-summary"><h4>地方土地出讓收入在 2024 年下降 16%</h4><p>土地收入下滑壓縮地方政府可配置的財政空間，使維持行政運作、償債與公共服務面臨更直接的取捨。</p></div>
+                <a href="https://www.investing.com/news/economy-news/chinas-2024-local-government-land-sales-see-16-drop-in-revenue-3829088" target="_blank" rel="noreferrer" aria-label="閱讀 Reuters 報導：地方土地出讓收入在 2024 年下降 16%">原文 <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></a>
+              </article>
+            </li>
+            <li>
+              <article>
+                <span class="news-index" aria-hidden="true">05</span>
+                <div class="news-source"><strong>The Guardian</strong><time datetime="2024-11-08">2024.11.08</time></div>
+                <div class="news-summary"><h4>中國推出十兆元地方債務置換方案</h4><p>大規模化債措施反映地方隱性債務的壓力，也說明治理支出與債務處理共享同一個有限的財政空間。</p></div>
+                <a href="https://www.theguardian.com/business/2024/nov/08/china-unveils-10tn-yuan-support-for-debt-stricken-local-government" target="_blank" rel="noreferrer" aria-label="閱讀 The Guardian 報導：中國推出十兆元地方債務置換方案">原文 <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></a>
+              </article>
+            </li>
+            <li>
+              <article>
+                <span class="news-index" aria-hidden="true">06</span>
+                <div class="news-source"><strong>Le Monde</strong><time datetime="2024-07-05">2024.07.05</time></div>
+                <div class="news-summary"><h4>省、市與鄉鎮財政陷入困境</h4><p>地方財政吃緊意味著治理、薪資、公共服務與債務處理必須在同一資源池中競爭，並增加中央支援的重要性。</p></div>
+                <a href="https://www.lemonde.fr/en/economy/article/2024/07/05/china-is-having-trouble-paying-its-finances_6676755_19.html" target="_blank" rel="noreferrer" aria-label="閱讀 Le Monde 報導：省、市與鄉鎮財政陷入困境">原文 <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></a>
+              </article>
+            </li>
+            <li>
+              <article>
+                <span class="news-index" aria-hidden="true">07</span>
+                <div class="news-source"><strong>Radio Free Asia</strong><time datetime="2024-03-06">2024.03.06</time></div>
+                <div class="news-summary"><h4>從中央公共安全預算觀察維穩支出</h4><p>報導以全國人大預算資料討論中央公共安全支出增幅；這項科目可作觀察基線，但不能直接等同全部維穩成本。</p></div>
+                <a href="https://www.rfa.org/mandarin/yataibaodao/zhengzhi/gt1-03062024014146.html/" target="_blank" rel="noreferrer" aria-label="閱讀 Radio Free Asia 報導：從中央公共安全預算觀察維穩支出">原文 <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></a>
+              </article>
+            </li>
+            <li>
+              <article>
+                <span class="news-index" aria-hidden="true">08</span>
+                <div class="news-source"><strong>Le Monde</strong><time datetime="2024-03-31">2024.03.31</time></div>
+                <div class="news-summary"><h4>中國國安體系走向更公開的社會動員</h4><p>國安部透過公開傳播擴大安全敘事，顯示情報與政治安全工作不只存在於機關內部，也進入日常宣傳。</p></div>
+                <a href="https://www.lemonde.fr/en/international/article/2024/03/31/china-s-intelligence-steps-out-of-the-shadows_6666888_4.html" target="_blank" rel="noreferrer" aria-label="閱讀 Le Monde 報導：中國國安體系走向更公開的社會動員">原文 <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></a>
+              </article>
+            </li>
+            <li>
+              <article>
+                <span class="news-index" aria-hidden="true">09</span>
+                <div class="news-source"><strong>The Guardian</strong><time datetime="2024-03-25">2024.03.25</time></div>
+                <div class="news-summary"><h4>海外中國學生描述跨境監控壓力</h4><p>報導透過在英學生的經驗，說明國內監控與家屬施壓如何延伸到海外政治表達，形成跨境治理效應。</p></div>
+                <a href="https://www.theguardian.com/global-development/2024/mar/25/china-students-uk-beijing-transnational-repression-surveillance" target="_blank" rel="noreferrer" aria-label="閱讀 The Guardian 報導：海外中國學生描述跨境監控壓力">原文 <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></a>
+              </article>
+            </li>
+            <li>
+              <article>
+                <span class="news-index" aria-hidden="true">10</span>
+                <div class="news-source"><strong>The Guardian</strong><time datetime="2024-01-01">2024.01.01</time></div>
+                <div class="news-summary"><h4>房地產、地方債與國企債務交互影響</h4><p>評論整理房地產下行與地方債務的結構性壓力，補充為何土地財政轉弱會限制地方長期治理能力。</p></div>
+                <a href="https://www.theguardian.com/business/2024/jan/01/chinas-many-systemic-problems-dominate-its-outlook-for-2024" target="_blank" rel="noreferrer" aria-label="閱讀 The Guardian 評論：房地產、地方債與國企債務交互影響">原文 <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></a>
+              </article>
+            </li>
+          </ol>
+          <button class="news-list-toggle" type="button" aria-expanded="false" aria-controls="external-news-list">
+            <span>顯示全部 10 則報導</span>
+            <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" />
+          </button>
+        </section>
+      </section>
+
+      <dialog id="funding-dialog" class="perspective-dialog funding-dialog" aria-labelledby="funding-dialog-title" aria-describedby="funding-dialog-intro">
+        <button class="dialog-close" type="button" aria-label="關閉資金流程詳細資料">
+          <img src="assets/icons/x-mark.svg" alt="" aria-hidden="true" />
+        </button>
+        <figure class="dialog-visual">
+          <img data-dialog-image class="dialog-visual-image" src="assets/images/funding-editorial.webp" loading="lazy" decoding="async" alt="" />
+          <span class="dialog-visual-shade" aria-hidden="true"></span>
+          <span class="dialog-visual-icon"><img data-dialog-icon src="assets/icons/arrows-right-left.svg" alt="" aria-hidden="true" /></span>
+          <figcaption data-dialog-caption class="dialog-visual-caption"></figcaption>
+        </figure>
+        <div class="dialog-shell">
+          <span id="funding-dialog-tag" class="dialog-tag"></span>
+          <h2 id="funding-dialog-title"></h2>
+          <p data-dialog-subtitle class="dialog-subtitle"></p>
+          <div class="dialog-description"><img src="assets/icons/information-circle.svg" alt="" aria-hidden="true" /><p id="funding-dialog-intro" class="dialog-intro"></p></div>
+          <div class="dialog-details">
+            <h3><img src="assets/icons/clipboard-document-list.svg" alt="" aria-hidden="true" />三個重點</h3>
+            <ul id="funding-dialog-points"></ul>
+          </div>
+          <details class="dialog-question-disclosure">
+            <summary><span><img src="assets/icons/eye.svg" alt="" aria-hidden="true" />核心問題</span><span class="dialog-question-toggle" aria-hidden="true"></span></summary>
+            <div class="dialog-question-answer"><strong id="funding-dialog-question"></strong></div>
+          </details>
+          <div class="dialog-sources"><h3><img src="assets/icons/globe-alt.svg" alt="" aria-hidden="true" />參考來源</h3><ul data-dialog-sources></ul></div>
+        </div>
+      </dialog>
+
+      <section id="system" class="chapter system-section" aria-labelledby="system-title">
+        <div class="chapter-label">
+          <img class="section-icon" src="assets/icons/building-library.svg" alt="" aria-hidden="true" />
+          03・治理鏈
+        </div>
+        <div class="section-heading">
+          <div>
+            <h2 id="system-title">中共如何把維穩資源轉化為治理能力</h2>
+          </div>
+          <p>中共以黨的集中統一領導為起點，把安全判斷轉成政法任務，再由公安國安、司法、地方政府與基層組織執行。選擇階段即可聚焦兩個對應步驟，也可展開完整六步。</p>
+        </div>
+
+        <div class="system-map-header">
+          <span class="system-filter-status"><span>目前階段</span><strong id="system-filter-label">01–02・定義風險與任務</strong></span>
+          <button id="system-show-all" class="system-show-all" type="button" aria-expanded="false" aria-controls="system-steps"><span>查看全部六步</span><img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></button>
+        </div>
+        <div class="system-path" aria-label="三個階段總覽：步驟一至二、步驟三至四、步驟五至六">
+          <button class="system-path-node" type="button" data-system-group="policy" aria-label="顯示步驟一至二" aria-pressed="true">
+            <span><img class="icon-light" src="assets/icons/exclamation-triangle.svg" alt="" aria-hidden="true" /></span>
+            <b>步驟 01–02</b>
+            <strong>定義風險與任務</strong>
+            <small>定義風險 → 轉譯為任務</small>
+          </button>
+          <div class="system-path-line" aria-hidden="true"><i></i><i></i><i></i></div>
+          <button class="system-path-node" type="button" data-system-group="execution" aria-label="顯示步驟三至四" aria-pressed="false">
+            <span><img class="icon-light" src="assets/icons/clipboard-document-list.svg" alt="" aria-hidden="true" /></span>
+            <b>步驟 03–04</b>
+            <strong>執行與法定程序</strong>
+            <small>情報執法 → 納入程序</small>
+          </button>
+          <div class="system-path-line" aria-hidden="true"><i></i><i></i><i></i></div>
+          <button class="system-path-node" type="button" data-system-group="local" aria-label="顯示步驟五至六" aria-pressed="false">
+            <span><img class="icon-light" src="assets/icons/squares-2x2.svg" alt="" aria-hidden="true" /></span>
+            <b>步驟 05–06</b>
+            <strong>地方執行與日常</strong>
+            <small>地方落地 → 嵌入治理</small>
+          </button>
+        </div>
+
+        <div class="system-detail-divider" aria-hidden="true">
+          <img src="assets/icons/arrow-right.svg" alt="" />
+        </div>
+
+        <ol id="system-steps" class="power-chain" aria-label="治理路徑的六個詳細步驟">
+          <li>
+            <button class="system-step" type="button" data-system-step="define" aria-haspopup="dialog" aria-controls="system-dialog">
+              <span class="system-step-top"><span class="chain-number">01</span><img src="assets/icons/exclamation-triangle.svg" alt="" aria-hidden="true" /></span>
+              <strong>定義風險</strong><small>黨中央、國安與政法決策體系</small>
+              <span class="system-step-action">查看詳情 <span aria-hidden="true">→</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="system-step" type="button" data-system-step="translate" aria-haspopup="dialog" aria-controls="system-dialog">
+              <span class="system-step-top"><span class="chain-number">02</span><img src="assets/icons/clipboard-document-list.svg" alt="" aria-hidden="true" /></span>
+              <strong>轉譯為任務</strong><small>政法委及中央、地方協調系統</small>
+              <span class="system-step-action">查看詳情 <span aria-hidden="true">→</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="system-step" type="button" data-system-step="enforce" aria-haspopup="dialog" aria-controls="system-dialog">
+              <span class="system-step-top"><span class="chain-number">03</span><img src="assets/icons/magnifying-glass.svg" alt="" aria-hidden="true" /></span>
+              <strong>情報與執法</strong><small>公安、國安、武警等單位</small>
+              <span class="system-step-action">查看詳情 <span aria-hidden="true">→</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="system-step" type="button" data-system-step="legalize" aria-haspopup="dialog" aria-controls="system-dialog">
+              <span class="system-step-top"><span class="chain-number">04</span><img src="assets/icons/scale.svg" alt="" aria-hidden="true" /></span>
+              <strong>納入法定程序</strong><small>法院、檢察與司法行政</small>
+              <span class="system-step-action">查看詳情 <span aria-hidden="true">→</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="system-step" type="button" data-system-step="localize" aria-haspopup="dialog" aria-controls="system-dialog">
+              <span class="system-step-top"><span class="chain-number">05</span><img src="assets/icons/building-office-2.svg" alt="" aria-hidden="true" /></span>
+              <strong>地方執行</strong><small>地方黨委、政府與街道</small>
+              <span class="system-step-action">查看詳情 <span aria-hidden="true">→</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="system-step" type="button" data-system-step="normalize" aria-haspopup="dialog" aria-controls="system-dialog">
+              <span class="system-step-top"><span class="chain-number">06</span><img src="assets/icons/squares-2x2.svg" alt="" aria-hidden="true" /></span>
+              <strong>嵌入日常治理</strong><small>社區、學校、企業與平台</small>
+              <span class="system-step-action">查看詳情 <span aria-hidden="true">→</span></span>
+            </button>
+          </li>
+        </ol>
+
+        <div class="narrative-compare-intro">
+          <div>
+            <h3>同一套治理流程，可以同時檢視效能與權力界線</h3>
+          </div>
+        </div>
+
+        <div class="narrative-compare" aria-label="同一套治理流程的兩種並列評估視角" data-compare-key="overall">
+          <article data-compare-panel="internal">
+            <span>觀點 A・中共內部敘事</span>
+            <h3 id="compare-internal-title">秩序、安全與行政協調</h3>
+            <p id="compare-internal-copy">中共將風險防範、矛盾化解與公共秩序視為發展前提，並以跨部門協調和基層執行證明治理能力。</p>
+            <small>治理效能如何被說明</small>
+          </article>
+          <span class="narrative-compare-link" aria-hidden="true"><img src="assets/icons/arrows-right-left.svg" alt="" /></span>
+          <article data-compare-panel="external">
+            <span>觀點 B・外部檢驗</span>
+            <h3 id="compare-external-title">監督、程序與自由邊界</h3>
+            <p id="compare-external-copy">追問誰定義風險、誰監督監控者，以及維持秩序是否壓縮了表達、組織與抗議空間。</p>
+            <small>權力邊界如何被檢驗</small>
+          </article>
+        </div>
+      </section>
+
+      <dialog id="system-dialog" class="perspective-dialog system-dialog" aria-labelledby="system-dialog-title" aria-describedby="system-dialog-intro">
+        <button class="dialog-close" type="button" aria-label="關閉體系階段詳細資料"><img src="assets/icons/x-mark.svg" alt="" aria-hidden="true" /></button>
+        <figure class="dialog-visual"><img data-dialog-image class="dialog-visual-image" src="assets/images/scenario-core.jpg" alt="" /><span class="dialog-visual-shade" aria-hidden="true"></span><span class="dialog-visual-icon"><img data-dialog-icon src="assets/icons/building-library.svg" alt="" aria-hidden="true" /></span><figcaption data-dialog-caption class="dialog-visual-caption"></figcaption></figure>
+        <div class="dialog-shell">
+          <span id="system-dialog-tag" class="dialog-tag"></span>
+          <h2 id="system-dialog-title"></h2>
+          <p data-dialog-subtitle class="dialog-subtitle"></p>
+          <div class="dialog-description"><img src="assets/icons/information-circle.svg" alt="" aria-hidden="true" /><p id="system-dialog-intro" class="dialog-intro"></p></div>
+          <div class="dialog-details">
+            <h3><img src="assets/icons/clipboard-document-list.svg" alt="" aria-hidden="true" />三個重點</h3>
+            <ul id="system-dialog-points"></ul>
+          </div>
+          <details class="dialog-question-disclosure">
+            <summary><span><img src="assets/icons/eye.svg" alt="" aria-hidden="true" />核心問題</span><span class="dialog-question-toggle" aria-hidden="true"></span></summary>
+            <div class="dialog-question-answer"><strong id="system-dialog-question"></strong></div>
+          </details>
+          <div class="dialog-sources"><h3><img src="assets/icons/globe-alt.svg" alt="" aria-hidden="true" />參考來源</h3><ul data-dialog-sources></ul></div>
+          <p class="dialog-caveat"><img src="assets/icons/information-circle.svg" alt="" aria-hidden="true" /><span>這是用來理解制度關係的分析模型；實際權責可能重疊，也會隨地區、事件與政策調整而改變。</span></p>
+        </div>
+      </dialog>
+
+      <section id="perspectives" class="chapter perspectives-section" aria-labelledby="perspectives-title">
+        <div class="chapter-label">
+          <img class="section-icon icon-light" src="assets/icons/globe-alt.svg" alt="" aria-hidden="true" />
+          04・外部觀察
+        </div>
+        <div class="section-heading">
+          <div>
+            <h2 id="perspectives-title">外部如何評估中共的維穩治理？</h2>
+          </div>
+          <p>先從權利、財政、科技與台灣四種角度建立觀察問題，再接續閱讀 10 則外部報導，避免新聞案例與分析立場混在一起。</p>
+        </div>
+
+        <div class="perspective-grid">
+          <button class="perspective-card" type="button" data-perspective="rights" aria-haspopup="dialog" aria-controls="perspective-dialog">
+            <img class="card-icon icon-light" src="assets/icons/eye.svg" alt="" aria-hidden="true" />
+            <span class="perspective-tag">外部檢驗・權利視角</span>
+            <h3>權利受到哪些影響？</h3>
+            <p>關注言論自由、異議人士、少數群體與法律程序。</p>
+            <span class="perspective-action">查看詳情 <img class="icon-light" src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
+          </button>
+          <button class="perspective-card" type="button" data-perspective="business" aria-haspopup="dialog" aria-controls="perspective-dialog">
+            <img class="card-icon icon-light" src="assets/icons/chart-bar-square.svg" alt="" aria-hidden="true" />
+            <span class="perspective-tag">外部檢驗・財政與商業</span>
+            <h3>財政能否持續承擔？</h3>
+            <p>關注地方債務、土地收入、資源排擠及投資環境。</p>
+            <span class="perspective-action">查看詳情 <img class="icon-light" src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
+          </button>
+          <button class="perspective-card" type="button" data-perspective="technology" aria-haspopup="dialog" aria-controls="perspective-dialog">
+            <img class="card-icon icon-light" src="assets/icons/cpu-chip.svg" alt="" aria-hidden="true" />
+            <span class="perspective-tag">外部檢驗・科技治理</span>
+            <h3>技術如何改變治理？</h3>
+            <p>關注人臉辨識、資料整合、自動審查與技術輸出。</p>
+            <span class="perspective-action">查看詳情 <img class="icon-light" src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
+          </button>
+          <button class="perspective-card taiwan-card" type="button" data-perspective="taiwan" aria-haspopup="dialog" aria-controls="perspective-dialog">
+            <img class="card-icon icon-light" src="assets/icons/shield-check.svg" alt="" aria-hidden="true" />
+            <span class="perspective-tag">外部檢驗・台灣民主</span>
+            <h3>這對台灣意味著什麼？</h3>
+            <p>從戒嚴記憶、民主化經驗與中國對台壓力出發，關注秩序與自由之間的界線。</p>
+            <span class="perspective-action">查看詳情 <img class="icon-light" src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
+          </button>
+        </div>
+      </section>
+
+      <dialog id="perspective-dialog" class="perspective-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-intro">
+        <button class="dialog-close" type="button" aria-label="關閉詳細資料"><img src="assets/icons/x-mark.svg" alt="" aria-hidden="true" /></button>
+        <figure class="dialog-visual"><img data-dialog-image class="dialog-visual-image" src="assets/images/scenario-expanded.jpg" alt="" /><span class="dialog-visual-shade" aria-hidden="true"></span><span class="dialog-visual-icon"><img data-dialog-icon src="assets/icons/eye.svg" alt="" aria-hidden="true" /></span><figcaption data-dialog-caption class="dialog-visual-caption"></figcaption></figure>
+        <div class="dialog-shell">
+          <span id="dialog-tag" class="dialog-tag"></span>
+          <h2 id="dialog-title"></h2>
+          <p data-dialog-subtitle class="dialog-subtitle"></p>
+          <div class="dialog-description"><img src="assets/icons/information-circle.svg" alt="" aria-hidden="true" /><p id="dialog-intro" class="dialog-intro"></p></div>
+          <div class="dialog-details">
+            <h3><img src="assets/icons/clipboard-document-list.svg" alt="" aria-hidden="true" />三個重點</h3>
+            <ul id="dialog-points"></ul>
+          </div>
+          <details class="dialog-question-disclosure">
+            <summary>
+              <span><img src="assets/icons/eye.svg" alt="" aria-hidden="true" />核心問題</span>
+              <span class="dialog-question-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="dialog-question-answer"><strong id="dialog-question"></strong></div>
+          </details>
+          <div class="dialog-sources"><h3><img src="assets/icons/globe-alt.svg" alt="" aria-hidden="true" />參考來源</h3><ul data-dialog-sources></ul></div>
+        </div>
+      </dialog>
+
+      <section id="method" class="chapter method-section" aria-labelledby="method-title">
+        <div class="chapter-label">
+          <img class="section-icon" src="assets/icons/document-magnifying-glass.svg" alt="" aria-hidden="true" />
+          方法與限制
+        </div>
+        <div class="section-heading">
+          <div>
+            <h2 id="method-title" class="rwd-single-line">中共官方資料能說明什麼，本站又推估什麼？</h2>
+          </div>
+          <p>本站先以中共官方文件理解其制度語言與機關職能，再用學術研究、媒體調查與透明模型補足公開資料缺口；兩者不會混寫成同一種證據。</p>
+        </div>
+        <div class="source-faqs" aria-label="資料來源與判讀方式 FAQ">
+          <details class="source-faq" name="method-source">
+            <summary>
+              <span class="source-dot official"></span>
+              <span class="source-faq-copy"><small>中共官方公布</small><strong>官方資料能回答哪些問題？</strong></span>
+              <span class="source-faq-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="source-faq-answer">
+              <p>預決算與正式文件可以確認中共如何命名政策、劃分機關職掌，以及公開科目的年度變化。</p>
+              <ul><li>適合建立制度與預算基線</li><li>不能直接等同全部維穩成本</li></ul>
+              <button class="source-detail-button" type="button" data-source-detail="official" aria-haspopup="dialog" aria-controls="method-dialog">查看完整判讀方法 <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></button>
+            </div>
+          </details>
+          <details class="source-faq" name="method-source">
+            <summary>
+              <span class="source-dot academic"></span>
+              <span class="source-faq-copy"><small>學術研究</small><strong>研究如何補足官方資料缺口？</strong></span>
+              <span class="source-faq-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="source-faq-answer">
+              <p>論文與研究資料庫可提供跨年度比較、制度脈絡與可重複檢驗的方法，協助理解公開科目之外的治理活動。</p>
+              <ul><li>適合比較定義、方法與長期趨勢</li><li>必須核對研究期間與估算邊界</li></ul>
+              <button class="source-detail-button" type="button" data-source-detail="academic" aria-haspopup="dialog" aria-controls="method-dialog">查看完整判讀方法 <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></button>
+            </div>
+          </details>
+          <details class="source-faq" name="method-source">
+            <summary>
+              <span class="source-dot media"></span>
+              <span class="source-faq-copy"><small>媒體調查</small><strong>新聞報導在這裡扮演什麼角色？</strong></span>
+              <span class="source-faq-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="source-faq-answer">
+              <p>具名採訪、採購文件與現場調查能補充地方執行、技術供應鏈及個案影響，讓制度描述連接到實際運作。</p>
+              <ul><li>適合補充事件、採購與地方差異</li><li>單一個案不能直接推論全國總量</li></ul>
+              <button class="source-detail-button" type="button" data-source-detail="media" aria-haspopup="dialog" aria-controls="method-dialog">查看完整判讀方法 <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></button>
+            </div>
+          </details>
+          <details class="source-faq" name="method-source">
+            <summary>
+              <span class="source-dot model"></span>
+              <span class="source-faq-copy"><small>模型估算</small><strong>本站為什麼仍需要建立模型？</strong></span>
+              <span class="source-faq-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="source-faq-answer">
+              <p>當公開資料沒有單一總額時，透明模型可把納入項目、基準金額與情境係數拆開，呈現不同口徑如何改變結果。</p>
+              <ul><li>適合測試口徑與假設的敏感度</li><li>模型結果不是官方數字或精確預測</li></ul>
+              <button class="source-detail-button" type="button" data-source-detail="model" aria-haspopup="dialog" aria-controls="method-dialog">查看完整判讀方法 <img src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></button>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <dialog id="method-dialog" class="perspective-dialog" aria-labelledby="method-dialog-title">
+        <button class="dialog-close" type="button" aria-label="關閉資料類型詳細資料"><img src="assets/icons/x-mark.svg" alt="" aria-hidden="true" /></button>
+        <figure class="dialog-visual"><img data-dialog-image class="dialog-visual-image" src="assets/images/funding-editorial.webp" loading="lazy" decoding="async" alt="" /><span class="dialog-visual-shade" aria-hidden="true"></span><span class="dialog-visual-icon"><img data-dialog-icon src="assets/icons/document-magnifying-glass.svg" alt="" aria-hidden="true" /></span><figcaption data-dialog-caption class="dialog-visual-caption"></figcaption></figure>
+        <div class="dialog-shell">
+          <span id="method-dialog-tag" class="dialog-tag"></span>
+          <h2 id="method-dialog-title"></h2>
+          <p data-dialog-subtitle class="dialog-subtitle"></p>
+          <div class="dialog-description"><img src="assets/icons/information-circle.svg" alt="" aria-hidden="true" /><p id="method-dialog-intro" class="dialog-intro"></p></div>
+          <div class="dialog-details">
+            <h3><img src="assets/icons/clipboard-document-list.svg" alt="" aria-hidden="true" />三個重點</h3>
+            <ul id="method-dialog-points"></ul>
+          </div>
+          <details class="dialog-question-disclosure">
+            <summary><span><img src="assets/icons/eye.svg" alt="" aria-hidden="true" />核心問題</span><span class="dialog-question-toggle" aria-hidden="true"></span></summary>
+            <div class="dialog-question-answer"><strong id="method-dialog-question"></strong></div>
+          </details>
+          <div class="dialog-sources"><h3><img src="assets/icons/globe-alt.svg" alt="" aria-hidden="true" />參考來源</h3><ul data-dialog-sources></ul></div>
+          <p class="dialog-caveat"><img src="assets/icons/information-circle.svg" alt="" aria-hidden="true" /><span id="method-dialog-caveat"></span></p>
+        </div>
+      </dialog>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <img class="brand-mark" src="public/favicon.svg" alt="" aria-hidden="true" />
+        <strong>中共維穩費觀察</strong>
+      </div>
+      <div class="footer-meta">
+        <p><strong>試作版限制</strong>　本頁前三章採中共治理視角呈現其內部運作邏輯，第四章再加入外部檢驗；採用該視角不代表接受官方立場。文中數字尚未完成逐項查證，不應作為研究、投資或政策判斷的唯一依據。</p>
+        <small>© 2026 中共維穩費觀察・分析框架與頁面內容保留所有權利</small>
+      </div>
+      <a class="footer-top" href="#top">回到頂端 <img class="icon-light" src="assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></a>
+    </footer>
+
+    <script src="assets/vendor/gsap.min.js"></script>
+    <script src="assets/vendor/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
