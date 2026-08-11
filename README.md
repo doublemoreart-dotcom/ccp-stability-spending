@@ -88,7 +88,7 @@ npm run publish:init
 npm run publish:prepare
 ```
 
-`publish:prepare` 會先完成本機預檢，再以白名單把公開網站需要的檔案同步到獨立 checkout，並驗證 Repo、`main` 分支、頁面語法與待發布差異。像 `public/` 內屬於開發樣板、但未被本網站使用的檔案不會帶入。若 checkout 原本已有未提交變更，流程會停止，不會覆寫。
+`publish:prepare` 會先完成本機預檢，再依「允許發布清單」把公開網站需要的檔案同步到獨立 checkout，並驗證 Repo、`main` 分支、頁面語法與待發布差異。像 `public/` 內屬於開發樣板、但未被本網站使用的檔案不會帶入。若 checkout 原本已有未提交變更，流程會停止，不會覆寫。
 
 同步完成後，進入以下目錄審閱：
 
@@ -99,7 +99,21 @@ git diff --check
 git diff
 ```
 
-確認後才自行執行 `git add`、commit 與 push。更新腳本不會自動發布，也不會修改本機主專案的 remote。
+確認後，以單一指令明確發布：
+
+```bash
+npm run publish:release -- "chore: describe this release"
+```
+
+這個指令只操作 `outputs/ccp-stability-spending-publish/`，會再次核對 realpath、獨立 `.git`、指定 origin、`main` 與最新 `origin/main`，拒絕允許範圍外的差異，再以明確路徑 stage、commit、push。它會使用 Repo 專用的 GitHub noreply 作者設定，等待相同 commit 的 Pages run 成功，最後以 cache-busting URL 驗證 HTTP 200；不依賴 `gh auth status`，也不會修改本機主專案的 remote。
+
+只想驗證隔離、差異範圍與網站內容，不 commit 或 push 時：
+
+```bash
+npm run publish:release -- --dry-run
+```
+
+若沒有差異，`publish:release` 會成功結束，不建立空 commit。
 
 若已推送的版本需要退回，請在發布 checkout 對對應 commit 執行 `git revert <commit>`，再推送新產生的還原 commit；這會保留完整發布歷史。尚未 commit 的同步結果則可在發布 checkout 內先檢查狀態，再個別還原，避免影響本機原始版與預覽版。
 

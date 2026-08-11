@@ -14,6 +14,7 @@
     "local:sync": "node scripts/sync-local-preview.mjs",
     "publish:init": "node scripts/init-github-publish.mjs",
     "publish:prepare": "node scripts/prepare-github-publish.mjs",
+    "publish:release": "node scripts/release-github-publish.mjs",
     "version:check": "node scripts/check-version-boundary.mjs",
     "test": "node --check script.js && node scripts/check-site.mjs --source"
   },
