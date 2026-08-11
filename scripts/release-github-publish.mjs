@@ -65,13 +65,17 @@ async function fetchJson(url) {
 
 async function waitForPages(commitSha) {
   const deadline = Date.now() + pagesTimeoutMs;
-  const apiUrl = `https://api.github.com/repos/${expectedRepoSlug}/actions/runs?head_sha=${commitSha}&event=push&per_page=20`;
+  const apiUrl = `https://api.github.com/repos/${expectedRepoSlug}/actions/runs?head_sha=${commitSha}&per_page=20`;
   let latestRun;
 
   while (Date.now() < deadline) {
     const data = await fetchJson(apiUrl);
     latestRun = data.workflow_runs.find(
-      (run) => run.name === "pages-build-deployment" || run.path === "pages-build-deployment",
+      (run) =>
+        run.name === "pages build and deployment" ||
+        run.name === "pages-build-deployment" ||
+        run.path?.endsWith("/pages-build-deployment") ||
+        run.path === "pages-build-deployment",
     );
 
     if (latestRun?.status === "completed") {
