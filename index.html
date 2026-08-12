@@ -11,6 +11,20 @@
         document.querySelector("#site-preloader")?.remove();
       }, 5000);
     </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJL0958M6G"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      // 本機 file:// 預覽不送出瀏覽資料，避免污染正式站 GA 報表。
+      if (window.location.protocol !== "file:") {
+        gtag("config", "G-RJL0958M6G");
+      }
+    </script>
     <meta
       name="description"
       content="從中共自身的治理邏輯出發，拆解其如何定義穩定、配置公共資源並建立維穩能力，再以外部視角檢驗成本與影響。"
