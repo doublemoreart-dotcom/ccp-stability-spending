@@ -13,8 +13,16 @@ import {
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
-const message = args.filter((argument) => argument !== "--dry-run").join(" ").trim();
+const verifyCurrent = args.includes("--verify-current");
+const message = args
+  .filter((argument) => !["--dry-run", "--verify-current"].includes(argument))
+  .join(" ")
+  .trim();
 const pagesTimeoutMs = 5 * 60 * 1000;
+
+if (dryRun && verifyCurrent) {
+  throw new Error("--dry-run 與 --verify-current 不能同時使用。");
+}
 
 function run(command, commandArgs, cwd, capture = false) {
   return execFileSync(command, commandArgs, {
@@ -165,7 +173,7 @@ run(
 run("git", ["config", "--local", "http.version", "HTTP/1.1"], publishRoot);
 run("git", ["config", "--local", "http.postBuffer", "524288000"], publishRoot);
 
-console.log("1/5 更新並核對 origin/main");
+console.log(verifyCurrent ? "1/2 更新並核對 origin/main" : "1/5 更新並核對 origin/main");
 run("git", ["fetch", "origin", "main"], publishRoot);
 const headBeforeRelease = gitOutput(publishRoot, ["rev-parse", "HEAD"]);
 const originMain = gitOutput(publishRoot, ["rev-parse", "origin/main"]);
@@ -173,6 +181,16 @@ if (headBeforeRelease !== originMain) {
   throw new Error(
     `發布 checkout 未與最新 origin/main 對齊。\nHEAD：${headBeforeRelease}\norigin/main：${originMain}`,
   );
+}
+
+if (verifyCurrent) {
+  console.log("2/2 驗證目前 main 的 Pages 部署與公開網址");
+  const pagesRun = await waitForPages(headBeforeRelease, publishRoot);
+  const page = await verifyPublishedPage(headBeforeRelease);
+  console.log(`目前版本：${headBeforeRelease}`);
+  console.log(`Pages run：${pagesRun.html_url}`);
+  console.log(`HTTP 200：${page.verificationUrl}（${page.bytes} bytes）`);
+  process.exit(0);
 }
 
 console.log("2/5 驗證發布差異範圍");

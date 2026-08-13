@@ -82,6 +82,18 @@ npm run site:preflight
 npm run publish:init
 ```
 
+### 快速發布（建議）
+
+內容完成並確認要公開時，可用單一指令完成預檢、同步、commit、push、等待 Pages 與 HTTP 200 驗證：
+
+```bash
+npm run publish:site -- "feat: describe this release"
+```
+
+這個快捷指令仍會依序呼叫下方的 `publish:prepare` 與 `publish:release`，不會略過三層隔離、發布白名單或遠端核對。任何一步失敗都會立即停止。
+
+### 需要先審閱差異時
+
 日後每次準備發布時：
 
 ```bash
@@ -114,6 +126,16 @@ npm run publish:release -- --dry-run
 ```
 
 若沒有差異，`publish:release` 會成功結束，不建立空 commit。
+
+若 commit 與 push 已成功，但當次執行在等待 GitHub API 或 Pages 時中斷，不要重新製造 commit；直接重驗目前 `main`：
+
+```bash
+npm run publish:verify
+```
+
+這個指令只核對獨立發布 checkout、`origin/main`、對應 Pages run 與公開網址，不會 stage、commit 或 push。
+
+公開 Repo 完成後，若還要同步至其他入口站或主站，屬於跨專案發布；本專案流程只回報來源 commit 與 Pages 結果，必須交由該主站的協調工作階段執行，不能從本專案直接修改或觸發其他 Repo。
 
 若已推送的版本需要退回，請在發布 checkout 對對應 commit 執行 `git revert <commit>`，再推送新產生的還原 commit；這會保留完整發布歷史。尚未 commit 的同步結果則可在發布 checkout 內先檢查狀態，再個別還原，避免影響本機原始版與預覽版。
 

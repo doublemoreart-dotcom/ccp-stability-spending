@@ -15,6 +15,8 @@
     "publish:init": "node scripts/init-github-publish.mjs",
     "publish:prepare": "node scripts/prepare-github-publish.mjs",
     "publish:release": "node scripts/release-github-publish.mjs",
+    "publish:site": "node scripts/publish-site.mjs",
+    "publish:verify": "node scripts/release-github-publish.mjs --verify-current",
     "version:check": "node scripts/check-version-boundary.mjs",
     "test": "node --check script.js && node scripts/check-site.mjs --source"
   },
